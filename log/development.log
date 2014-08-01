@@ -16983,3 +16983,107 @@ Processing by PinsController#index as HTML
   Rendered pins/index.html.erb within layouts/application (19.5ms)
   Rendered layouts/_header.html.erb (0.4ms)
 Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pins/new" for 127.0.0.1 at 2014-08-01 16:18:14 -0600
+Processing by PinsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered pins/_form.html.erb (2.1ms)
+  Rendered pins/new.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 33ms (Views: 11.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/pins" for 127.0.0.1 at 2014-08-01 16:18:24 -0600
+Processing by PinsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L3w+8e65wZOvKQIHngfPhpUdBc2yTyi8kUYHGhhIv7Y=", "pin"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fe94cd0a380 @tempfile=#<Tempfile:/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/RackMultipart20140801-460-1uonpvx>, @original_filename="test.gif", @content_type="image/gif", @headers="Content-Disposition: form-data; name=\"pin[image]\"; filename=\"test.gif\"\r\nContent-Type: image/gif\r\n">, "description"=>"Does this work?"}, "commit"=>"Create Pin"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+Command :: file -b --mime '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-9ewe8w.gif'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb0.gif[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb0.gif[0]'
+Command :: convert '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb0.gif' -coalesce -auto-orient -resize "300x300>" -layers "optimize" '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb020140801-460-12ktz9a'
+Command :: file -b --mime '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb020140801-460-12ktz9a'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb0.gif[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb0.gif[0]'
+Command :: convert '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb0.gif' -coalesce -auto-orient -resize "100x100>" -layers "optimize" '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb020140801-460-1mt5n08'
+Command :: file -b --mime '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-edgdb020140801-460-1mt5n08'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/mp/ywfpd8zd3tb6ckh15_gy9ghm0000gn/T/098f6bcd4621d373cade4e832627b4f620140801-460-10zffp3.gif'
+Binary data inserted for `string` type on column `image_content_type`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pins" ("created_at", "description", "image_content_type", "image_file_name", "image_file_size", "image_updated_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-08-01 22:18:32.162699"], ["description", "Does this work?"], ["image_content_type", "image/gif"], ["image_file_name", "test.gif"], ["image_file_size", 2096711], ["image_updated_at", "2014-08-01 22:18:24.142909"], ["updated_at", "2014-08-01 22:18:32.162699"], ["user_id", 2]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/pins/12
+Completed 302 Found in 8095ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/pins/12" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mPin Load (0.2ms)[0m  SELECT  "pins".* FROM "pins"  WHERE "pins"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered pins/show.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap_and_customization.css?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/pins.css?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/masonry/transitions.css?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/masonry/jquery.masonry.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/pins.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-08-01 16:18:32 -0600
+
+
+Started GET "/pins" for 127.0.0.1 at 2014-08-01 16:18:35 -0600
+Processing by PinsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPin Load (0.2ms)[0m  SELECT  "pins".* FROM "pins"   ORDER BY created_at DESC LIMIT 30 OFFSET 0
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered pins/index.html.erb within layouts/application (18.0ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.6ms)
